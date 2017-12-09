@@ -1,0 +1,24 @@
+{
+  "name": "data-rules",
+  "version": "0.0.1",
+  "description": "data rules",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ReAlign/data-rules.git"
+  },
+  "keywords": [
+    "data",
+    "validator",
+    "rules"
+  ],
+  "author": "ReAlign",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ReAlign/data-rules/issues"
+  },
+  "homepage": "https://github.com/ReAlign/data-rules#readme"
+}
