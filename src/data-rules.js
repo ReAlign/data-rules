@@ -17,14 +17,16 @@ let DataRules = {
         let _keys = Object.keys(rules) || [];
 
         _keys.forEach((k) => {
+            // rule item
             let _k = rules[k];
-
             console.log(_k);
+
+            // rule item type normal rules
             const _normalRules = _br[_k.type];
             console.log(_normalRules);
 
+            // regex keys
             const _rulesKeys = Object.keys(_k.regex) || [];
-
             console.log(_rulesKeys);
 
             // rule.success = true;
