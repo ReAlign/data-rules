@@ -9,7 +9,6 @@ const rules1 = {
     name: {
         type: 'str',
         regex: {
-            required: true,
             min: 1,
             max: 10
         },
@@ -19,4 +18,29 @@ const rules1 = {
     }
 };
 
-_dr.dr(obj1, rules1);
+const rules2 = {
+    name: {
+        type: 'str',
+        regex: {
+            min: 1,
+            max: 2
+        },
+        extra: (a) => {
+            console.log(a);
+        }
+    }
+};
+
+console.log(_dr.dr(obj1, rules1));
+
+// test('normalIntMsg', function() {
+//     expect(_dr.dr(obj1, rules1).message).toBe('');
+// });
+
+// test('normalIntBool', function() {
+//     expect(_dr.dr(obj1, rules2).success).toBe(false);
+// });
+
+// test('normalIntMsg', function() {
+//     expect(_dr.dr(obj1, rules2).message).toBe('length error');
+// });

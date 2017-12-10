@@ -12,12 +12,13 @@ let DataRules = {
 
         let res = {
             success: true,
-            message: ''
+            message: {}
         };
 
         let _keys = Object.keys(rules) || [];
 
         _keys.forEach((k) => {
+            res[k] = [];
             // rule item
             let _k = rules[k];
             // console.log(_k);
@@ -30,17 +31,25 @@ let DataRules = {
             const _regexKeys = Object.keys(_k.regex) || [];
             // console.log(_regexKeys);
 
-            _regexKeys.forEach((regk) => {
+            _regexKeys.every((regk) => {
                 // judge attr
                 if(_normalRules.hasOwnProperty(regk)) {
                     // console.log(regk);
                     // console.log(_be[regk]);
                     // console.log(_v[_be[regk]]);
-                    console.log(_v[_be[regk]](obj[k], _k.regex));
-                    res.success = _v[_be[regk]](obj[k], _k.regex);
+                    console.log(_v[_be[regk].fn](obj[k], _k.regex));
+                    res.success = _v[_be[regk].fn](obj[k], _k.regex);
+                    if(!res.success) {
+                        res[k].message.push({
+                            key: regk,
+                            msg: _be[regk].msg
+                        });
+                    }
                 } else {
                     console.warn('no');
                 }
+
+                return res.success;
             });
 
             // rule.success = true;
@@ -66,7 +75,7 @@ let DataRules = {
             // }
         });
 
-        // return result;
+        return res;
     }
 };
 

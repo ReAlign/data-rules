@@ -26,7 +26,31 @@ const rules1 = {
     }
 };
 
-_dr.dr(obj1, rules1);
-test('normalInt', function() {
-    expect(_dr.dr(obj1, rules1)).toBe(true);
+const rules2 = {
+    name: {
+        type: 'str',
+        regex: {
+            min: 1,
+            max: 2
+        },
+        extra: (a) => {
+            console.log(a);
+        }
+    }
+};
+
+test('normalIntBool', function() {
+    expect(_dr.dr(obj1, rules1).success).toBe(true);
+});
+
+test('normalIntMsg', function() {
+    expect(_dr.dr(obj1, rules1).message).toBe('');
+});
+
+test('normalIntBool', function() {
+    expect(_dr.dr(obj1, rules2).success).toBe(false);
+});
+
+test('normalIntMsg', function() {
+    expect(_dr.dr(obj1, rules2).message).toBe('length error');
 });
