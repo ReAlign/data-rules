@@ -1,11 +1,3 @@
-// const _dr = require('./../index');
-
-// const str1 = '12';
-
-// test('normalInt', function() {
-//     expect(_dr.isInt(str1)).toBe(true);
-// });
-
 const _dr = require('./../index');
 
 const obj1 = {
@@ -28,6 +20,3 @@ const rules1 = {
 };
 
 _dr.dr(obj1, rules1);
-test('normalInt', function() {
-    expect(_dr.dr(obj1, rules1)).toBe(true);
-});
