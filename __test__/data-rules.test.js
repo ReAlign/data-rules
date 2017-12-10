@@ -17,9 +17,8 @@ const rules1 = {
     name: {
         type: 'str',
         regex: {
-            required: true,
             min: 1,
-            max: 2
+            max: 10
         },
         extra: (a) => {
             console.log(a);
