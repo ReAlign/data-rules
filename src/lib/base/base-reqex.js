@@ -1,8 +1,11 @@
-import _t from './util';
-
 const _str = {
     min: 0,
     max: -1
+};
+
+const _int = {
+    min: 0,
+    max: 0
 };
 
 let _normal = () => {
@@ -13,8 +16,9 @@ let _normal = () => {
     return _normal;
 };
 
-let _ = {
-    str: _t.merge(_normal(), _str)
-};
-
-export default _;
+module.exports = ((_) => {
+    _._r = {
+        str: _._t.merge(_normal(), _str),
+        int: _._t.merge(_normal(), _int)
+    };
+});

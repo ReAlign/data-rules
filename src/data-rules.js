@@ -1,12 +1,11 @@
-import _v from 'n-validator';
-import _br from './lib/base/base-reqex';
-import _be from './lib/base/base-enum';
+let _v = require('n-validator');
 
-let DataRules = {
-    dr(obj = {}, rules = {}) {
+module.exports = ((_) => {
+    _.dr = (obj = {}, rules = {}) => {
         const _eo = {};
 
-        if(_v.compareObject(obj, _eo) || _v.compareObject(obj, rules)) {
+        // 没有参数、规则
+        if(_v.compareObject(obj, _eo) || _v.compareObject(rules, _eo)) {
             return true;
         }
 
@@ -15,68 +14,38 @@ let DataRules = {
             message: {}
         };
 
-        let _keys = Object.keys(rules) || [];
+        const _keys = Object.keys(rules) || [];
 
         _keys.forEach((k) => {
-            res[k] = [];
-            // rule item
-            let _k = rules[k];
-            // console.log(_k);
-
-            // rule item type normal rules
-            const _normalRules = _br[_k.type];
-            // console.log(_normalRules);
-
-            // regex keys
+            res.message[k] = [];
+            // 规则项
+            const _k = rules[k];
+            // 默认规则项
+            const _normalRules = _._r[_k.type];
+            // 规则关键字
             const _regexKeys = Object.keys(_k.regex) || [];
-            // console.log(_regexKeys);
+            // alias
+            const _et = _._e[_k.type];
 
             _regexKeys.every((regk) => {
-                // judge attr
+                // 判断属性
                 if(_normalRules.hasOwnProperty(regk)) {
-                    // console.log(regk);
-                    // console.log(_be[regk]);
-                    // console.log(_v[_be[regk]]);
-                    console.log(_v[_be[regk].fn](obj[k], _k.regex));
-                    res.success = _v[_be[regk].fn](obj[k], _k.regex);
+                    res.success = _v[_et[regk].fn](obj[k], _k.regex);
                     if(!res.success) {
-                        res[k].message.push({
+                        res.message[k].push({
                             key: regk,
-                            msg: _be[regk].msg
+                            msg: _et[regk].msg
                         });
                     }
                 } else {
                     console.warn('no');
                 }
 
+                // 遇到错误退出
                 return res.success;
             });
-
-            // rule.success = true;
-
-            // // 为了兼容
-            // if (rule.type === 'is') {
-            //     rule.success = (rule.options || rule.reg).test(value);
-            // } else if (rule.type === 'isNot') {
-            //     rule.success = !(rule.options || rule.reg).test(value);
-            // } else if (rule.type === 'isRequired' || rule.type === 'isFilled') {
-            //     rule.success = !!validator.toString(value).trim();
-            // } else if (rule.type === 'method' || rule.method) {
-            //     rule.success = (rule.options || rule.method)(value, rule);
-            // } else rule.success = !value || validator[rule.type](value, rule.options);
-
-            // rule.callback && rule.callback(value, rule);
-
-            // if (!rule.success && result.success) {
-            //     result.success = false;
-            //     result.firstRule = rule;
-            //     // @deprecated
-            //     result.message = rule.message;
-            // }
         });
 
         return res;
-    }
-};
-
-export default DataRules;
+    };
+});

@@ -1,8 +1,9 @@
 const _dr = require('./../index');
+const _co = require('n-s-logs');
 
 const obj1 = {
     name: 'realign',
-    age: 12
+    age: 120
 };
 
 const rules1 = {
@@ -14,6 +15,13 @@ const rules1 = {
         },
         extra: (a) => {
             console.log(a);
+        }
+    },
+    age: {
+        type: 'int',
+        regex: {
+            min: 1,
+            max: 100
         }
     }
 };
@@ -31,7 +39,8 @@ const rules2 = {
     }
 };
 
-console.log(_dr.dr(obj1, rules1));
+_co.json(_dr.dr(obj1, rules1));
+// console.log(_dr.dr(obj1, rules2));
 
 // test('normalIntMsg', function() {
 //     expect(_dr.dr(obj1, rules1).message).toBe('');
