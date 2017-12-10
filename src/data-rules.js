@@ -32,10 +32,11 @@ module.exports = ((_) => {
                 if(_normalRules.hasOwnProperty(regk)) {
                     res.success = _v[_et[regk].fn](obj[k], _k.regex);
                     if(!res.success) {
-                        res.message[k].push({
-                            key: regk,
-                            msg: _et[regk].msg
-                        });
+                        let _o = {};
+
+                        _o[regk] = _et[regk].msg;
+
+                        res.message[k].push(_o);
                     }
                 } else {
                     console.warn('no');
