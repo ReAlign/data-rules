@@ -16,7 +16,7 @@ module.exports = ((_) => {
 
         const _keys = Object.keys(rules) || [];
 
-        _keys.forEach((k) => {
+        _keys.every((k) => {
             res.message[k] = [];
             // 规则项
             const _k = rules[k];
@@ -45,6 +45,9 @@ module.exports = ((_) => {
                 // 遇到错误退出
                 return res.success;
             });
+
+            // 遇到错误退出
+            return res.success;
         });
 
         return res;

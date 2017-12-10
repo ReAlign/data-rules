@@ -1,6 +1,10 @@
 module.exports = ((_) => {
     _._e = {
         str: {
+            required: {
+                fn: 'isRequired',
+                msg: 'miss'
+            },
             min: {
                 fn: 'isLength',
                 msg: 'length error'
@@ -11,6 +15,10 @@ module.exports = ((_) => {
             }
         },
         int: {
+            required: {
+                fn: 'isRequired',
+                msg: 'miss'
+            },
             min: {
                 fn: 'isInt',
                 msg: 'length error'
