@@ -19,7 +19,7 @@ const rules1 = {
         regex: {
             required: true,
             min: 1,
-            max: 10
+            max: 2
         },
         extra: (a) => {
             console.log(a);

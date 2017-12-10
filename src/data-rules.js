@@ -1,7 +1,8 @@
 import _v from 'n-validator';
+import _br from './lib/base/base-reqex';
 
 let DataRules = {
-    dr: (obj = {}, rules = {}) => {
+    dr(obj = {}, rules = {}) {
         const _eo = {};
 
         if(_v.compareObject(obj, _eo) || _v.compareObject(obj, rules)) {
@@ -16,7 +17,16 @@ let DataRules = {
         let _keys = Object.keys(rules) || [];
 
         _keys.forEach((k) => {
-            console.log(rules[k]);
+            let _k = rules[k];
+
+            console.log(_k);
+            const _normalRules = _br[_k.type];
+            console.log(_normalRules);
+
+            const _rulesKeys = Object.keys(_k.regex) || [];
+
+            console.log(_rulesKeys);
+
             // rule.success = true;
 
             // // 为了兼容
