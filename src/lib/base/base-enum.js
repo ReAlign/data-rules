@@ -27,6 +27,12 @@ module.exports = ((_) => {
                 fn: 'isInt',
                 msg: 'length error'
             }
+        },
+        array: {
+            required: {
+                fn: 'isRequired',
+                msg: 'miss'
+            }
         }
     };
 });

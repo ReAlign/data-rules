@@ -3,7 +3,8 @@ const _co = require('n-s-logs');
 
 const obj1 = {
     name: '12',
-    age: 120
+    age: 12,
+    tags: [1]
 };
 
 const rules1 = {
@@ -18,6 +19,12 @@ const rules1 = {
         regex: {
             min: 1,
             max: 100
+        }
+    },
+    tags: {
+        type: 'array',
+        regex: {
+            required: true
         }
     }
 };

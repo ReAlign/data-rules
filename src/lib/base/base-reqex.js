@@ -8,6 +8,8 @@ const _int = {
     max: 0
 };
 
+const _array = {};
+
 let _normal = () => {
     let _normal = {
         required: true
@@ -19,6 +21,7 @@ let _normal = () => {
 module.exports = ((_) => {
     _._r = {
         str: _._t.merge(_normal(), _str),
-        int: _._t.merge(_normal(), _int)
+        int: _._t.merge(_normal(), _int),
+        array: _._t.merge(_normal(), _array)
     };
 });
