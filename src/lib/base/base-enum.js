@@ -33,6 +33,12 @@ module.exports = ((_) => {
                 fn: 'isRequired',
                 msg: 'miss'
             }
+        },
+        object: {
+            required: {
+                fn: 'isRequired',
+                msg: 'miss'
+            }
         }
     };
 });
