@@ -40,17 +40,9 @@ const rules2 = {
 };
 
 test('normalIntBool', function() {
-    expect(_dr.dr(obj1, rules1).success).toBe(true);
-});
-
-test('normalIntMsg', function() {
-    expect(_dr.dr(obj1, rules1).message).toBe('');
-});
-
-test('normalIntBool', function() {
     expect(_dr.dr(obj1, rules2).success).toBe(false);
 });
 
 test('normalIntMsg', function() {
-    expect(_dr.dr(obj1, rules2).message).toBe('length error');
+    expect(_dr.dr(obj1, rules2).message).toEqual({"name": [{"min": "length error"}]});
 });
