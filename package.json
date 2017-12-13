@@ -1,6 +1,6 @@
 {
   "name": "data-rules",
-  "version": "0.0.8",
+  "version": "0.1.0",
   "description": "data rules",
   "main": "index.js",
   "scripts": {

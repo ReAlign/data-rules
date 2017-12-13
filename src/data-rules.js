@@ -6,7 +6,7 @@ module.exports = ((_) => {
         const _eo = {};
 
         // 没有参数、规则
-        if(_v.compareObject(obj, _eo) || _v.compareObject(rules, _eo)) {
+        if(_t.compareObject(obj, _eo) || _t.compareObject(rules, _eo)) {
             return true;
         }
 
