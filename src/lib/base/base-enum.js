@@ -1,4 +1,16 @@
 module.exports = ((_) => {
+    // 默认
+    _._d = {
+        str: [],
+        int: ['_isInt'],
+        float: [],
+        array: [],
+        object: [],
+        date: ['_isDate'],
+        dateTime: ['_isDateTime']
+    };
+
+    // 枚举
     _._e = {
         str: {
             required: {
@@ -19,6 +31,10 @@ module.exports = ((_) => {
                 fn: 'isRequired',
                 msg: 'miss'
             },
+            _isInt: {
+                fn: 'isInt',
+                msg: 'not int'
+            },
             min: {
                 fn: 'isInt',
                 msg: 'length error'
@@ -38,6 +54,38 @@ module.exports = ((_) => {
             required: {
                 fn: 'isRequired',
                 msg: 'miss'
+            }
+        },
+        date: {
+            required: {
+                fn: 'isRequired',
+                msg: 'miss'
+            },
+            _isDate: {
+                fn: 'isDate',
+                msg: 'not date str'
+            },
+            separator: {
+                fn: 'isDate',
+                msg: 'separator error'
+            }
+        },
+        dateTime: {
+            required: {
+                fn: 'isRequired',
+                msg: 'miss'
+            },
+            _isDateTime: {
+                fn: 'isDateTime',
+                msg: 'not date time str'
+            },
+            separator: {
+                fn: 'isDateTime',
+                msg: 'separator error'
+            },
+            strictMode: {
+                fn: 'isDateTime',
+                msg: 'mode error'
             }
         }
     };
