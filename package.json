@@ -36,7 +36,7 @@
   },
   "homepage": "https://github.com/ReAlign/data-rules#readme",
   "dependencies": {
-    "n-validator": "^0.1.8",
+    "n-validator": "^0.2.0",
     "n-s-logs": "^0.2.0",
     "n-tools": "^0.1.1"
   },
