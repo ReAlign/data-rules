@@ -38,3 +38,7 @@ let res = _dr(obj, rules);
 }
  * /
 ```
+
+todo
+
+* [ ] caalback
